@@ -43,7 +43,7 @@ def processRequest(req):
         return {}
       
 #   base url for initial user query 
-    baseurl = "https://api.themoviedb.org/3/search/movie?api_key=9fe2fdf8fcbeeb11ecec17e5e4f0276a&query="
+    baseurl = "https://api.themoviedb.org/3/search/movie?api_key=8b5308de95e8d355d9f3281bd409def4&language=fr&query="
 #   Grabs paramter from user intent    
     yql_query = makeYqlQuery(req)
     if yql_query is None:
@@ -56,8 +56,8 @@ def processRequest(req):
     movieID = str(data['results'][0]['id'])
     
 #   Use movie ID in new link to query more details
-    idurl = "https://api.themoviedb.org/3/movie/" + movieID + "?api_key=9fe2fdf8fcbeeb11ecec17e5e4f0276a"
-    creditsurl = "https://api.themoviedb.org/3/movie/" + movieID + "/credits?api_key=9fe2fdf8fcbeeb11ecec17e5e4f0276a"
+    idurl = "https://api.themoviedb.org/3/movie/" + movieID + "?api_key=8b5308de95e8d355d9f3281bd409def4&language=fr"
+    creditsurl = "https://api.themoviedb.org/3/movie/" + movieID + "/credits?api_key=8b5308de95e8d355d9f3281bd409def4&language=fr"
     
     creditsResult = urlopen(creditsurl).read()
     creditsData = json.loads(creditsResult)
